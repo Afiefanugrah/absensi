@@ -10,7 +10,7 @@ if ($status != "login") {
 }
 if (isset($_POST['logout'])) {
     session_destroy();
-    header("location:../index.php?terimah kasih sudah berkunjung");
+    header("location:../index.php?message=terimah kasih sudah berkunjung");
 }
 ?>
 
@@ -30,12 +30,15 @@ if (isset($_POST['logout'])) {
         if (isset($_GET['message'])) {
             echo $_GET['message'];
         }
-
         ?>
     </p>
     <i>Halo <?= $nama_lengkap ?></i>
     <p>Status kepergawaian : <?= $role ?></p>
     <br/>
+
+    <!--    data -->
+    <?php include("absensi.php"); ?>
+
     <form action="" method="POST">
         <button type="submit" name="logout">Logout</button>
     </form>
