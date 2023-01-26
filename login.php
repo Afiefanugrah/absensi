@@ -23,7 +23,11 @@ if (isset($_POST['login'])) {
             $_SESSION['role'] = $data['role'];
             $_SESSION['status'] = "login";
 
-            header("location:dashboard/index.php?message=selamat datang di sistem absensi sederhana🎉");
+            if ($data['role'] == "admin") {
+                header("location:dashboard/index-admin.php?message= selamat datang admin!");
+            } else {
+                header("location:dashboard/index.php?message=selamat datang di sistem absensi sederhana🎉");
+            }
         }
 
     } else {
